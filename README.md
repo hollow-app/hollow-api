@@ -18,21 +18,26 @@ npm install hollow-api
 Import the types into your TypeScript project:
 
 ```ts
-import { IPlugin, ICard, HollowEvent } from 'hollow-api';
+import { IPlugin, ICard, HollowEvent, DataBase } from 'hollow-api';
 
 class MyPlugin implements IPlugin {
     async onCreate(card_name: string): Promise<boolean> {
-        console.log(`Card created: ${card_name}`);
-        return true;
+        const db = new DataBase("MyPlugin");
+        const result = await db.putData(card_name, { value: 42 });
+        return result;
     }
 
     async onDelete(card_name: string): Promise<boolean> {
-        console.log(`Card deleted: ${card_name}`);
-        return true;
+        const db = new DataBase("MyPlugin");
+        const result = await db.deleteData(card_name);
+        return result;
     }
 
     async onLoad(card_info: ICard): Promise<boolean> {
         console.log(`Card loaded: ${card_info.name}`);
+        const db = new DataBase("MyPlugin");
+        const data = await db.getData(card_name);
+        // load the plugin
         return true;
     }
 }
