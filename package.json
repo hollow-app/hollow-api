@@ -1,13 +1,15 @@
 {
   "name": "hollow-api",
-  "version": "1.0.0",
-  "description": "Type definitions for the hollow app.",
-  "repository":{
-	"type" : "git",
-	"url" : "git+https://github.com/hollow-app/hollow-api.git"
+  "version": "1.0.1",
+  "description": "The hollow app's API.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hollow-app/hollow-api.git"
   },
-  "main": "",
-  "types":"hollow.d.ts",
-  "keywords": ["hollow"],
+  "main": "index.ts",
+  "types": "hollow.d.ts",
+  "keywords": [
+    "hollow"
+  ],
   "license": "MIT"
 }

@@ -25,4 +25,11 @@ export interface HollowEvent {
     emit<T>(eventName: string, data: T): void;
     getCurrentData<T>(eventName: string): T | undefined;
 }
+export declare class DataBase {
+    constructor(pluginName: string);
+    public openDataBase(): Promise<IDBDatabase>;
+    public putData<T>(key: string, value: T): Promise<void>;
+    public getData<T>(key: string): Promise<T | undefined>;
+    public deleteData(key: string): Promise<void>;
+}
 
