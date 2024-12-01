@@ -1,6 +1,6 @@
 export interface IPlugin {
-    onCreate(card_name: string): Promise<boolean>;
-    onDelete(card_name: string): Promise<boolean>;
+    onCreate(card_name: string, db?: DataBase): Promise<boolean>;
+    onDelete(card_name: string, db?: DataBase): Promise<boolean>;
     onLoad(card_info: ICard): Promise<boolean>;
 }
 
@@ -12,6 +12,7 @@ export interface ICard {
     name: string;
     containerID: string;
     stateEvent: HollowEvent;
+    db?: DataBase;
     togglePopUp: SetState;
     fetch: Fetch;
 }
@@ -25,4 +26,10 @@ export interface HollowEvent {
     emit<T>(eventName: string, data: T): void;
     getCurrentData<T>(eventName: string): T | undefined;
 }
-
+export declare class DataBase {
+    constructor(pluginName: string, version: number);
+    public openDataBase(): Promise<IDBDatabase>;
+    public putData<T>(key: string, value: T): Promise<boolean>;
+    public getData<T>(key: string): Promise<T | undefined>;
+    public deleteData(key: string): Promise<boolean>;
+}

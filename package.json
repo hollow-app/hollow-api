@@ -1,12 +1,12 @@
 {
   "name": "hollow-api",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "The hollow app's API.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hollow-app/hollow-api.git"
   },
-  "main": "index.ts",
+  "main": "",
   "types": "hollow.d.ts",
   "keywords": [
     "hollow"
