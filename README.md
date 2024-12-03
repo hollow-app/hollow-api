@@ -30,10 +30,10 @@ class MyPlugin implements IPlugin {
         return result;
     }
 
-    async onLoad(card_info: ICard): Promise<boolean> {
-        console.log(`Card loaded: ${card_info.name}`);
-        const data = await card_info.db.getData(card_name);
-        // load the plugin
+    async onLoad(card: ICard): Promise<boolean> {
+        console.log(`Card loaded: ${card.name}`);
+        const data = await card.db.getData(card_name);
+        // load the plugin using card.containerID
         return true;
     }
 }
