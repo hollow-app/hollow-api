@@ -1,6 +1,6 @@
 {
     "name": "hollow-api",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "The hollow app's API.",
     "repository": {
         "type": "git",
